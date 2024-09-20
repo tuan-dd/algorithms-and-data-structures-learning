@@ -7,15 +7,9 @@ function isAnagram(s: string, t: string): boolean {
     map.set(s[i], (map.get(s[i]) || 0) + 1);
     map.set(t[i], (map.get(t[i]) || 0) - 1);
 
-    const l = (map.get(s[i]) || 0) + 1;
+    if (!map.get(s[i])) map.delete(s[i]);
 
-    if (!map.get(s[i])) {
-      map.delete(s[i]);
-    }
-
-    if (!map.get(t[i])) {
-      map.delete(t[i]);
-    }
+    if (!map.get(t[i])) map.delete(t[i]);
   }
 
   return map.size === 0;

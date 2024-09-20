@@ -1,24 +1,14 @@
 const regex = /[a-zA-Z0-9]/;
 
 function isPalindrome(s: string): boolean {
-  let right = s.length - 1;
   let left = 0;
+  let right = s.length - 1;
 
   while (left < right) {
-    if (!regex.test(s[left])) {
-      !regex.test(s[right]) && right--;
-      left++;
-      continue;
-    }
+    while (left < right && !regex.test(s[left])) left++;
+    while (left < right && !regex.test(s[right])) right--;
 
-    if (!regex.test(s[right])) {
-      right--;
-      continue;
-    }
-
-    if (s[left].toLowerCase() !== s[right].toLowerCase()) {
-      return false;
-    }
+    if (s[left].toLowerCase() !== s[right].toLowerCase()) return false;
 
     left++;
     right--;
@@ -27,6 +17,6 @@ function isPalindrome(s: string): boolean {
   return true;
 }
 
-console.log(isPalindrome('0P'));
-console.log(isPalindrome('.,'));
-console.log(isPalindrome('A man, a plan, a canal: Panama'));
+console.log(isPalindrome(" P"));
+console.log(isPalindrome(".,"));
+console.log(isPalindrome("A man, a plan, a canal: Panama"));
