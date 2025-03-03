@@ -13,7 +13,7 @@ function getStr(s: string) {
   return string;
 }
 
-// console.log(getStr('aabbbcca'));
+console.log(getStr("aabbbcca"));
 
 function count(s: string) {
   let string = s[0];
@@ -34,4 +34,4 @@ function count(s: string) {
   return string + count.toString();
 }
 
-console.log(count('aabcccccaaa'));
+console.log(count("aabcccccaaa"));
